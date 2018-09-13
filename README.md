@@ -1,1 +1,0 @@
-journal-front-end
