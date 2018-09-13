@@ -64,7 +64,8 @@ export default class Resources extends Component {
     }
 
     render() {
-        let headers = ['Name','Url','Framework','Language'];
+        // Boolean indicates data is clickable link
+        let headers = {'Name': false,'Url': true,'Framework': false,'Language': false};
         return(
             <Container>
                 <Navigation/>
