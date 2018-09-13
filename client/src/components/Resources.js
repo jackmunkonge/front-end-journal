@@ -23,8 +23,18 @@ export default class Resources extends Component {
 
     format = (res) => {
         for(let i=0;i<res.length;i++){
-            res[i].framework = res[i].framework.name;
-            res[i].language = res[i].language.name;
+            if(res[i].framework == null && res[i].language != null){
+                let tempName = res[i].language.name;
+                delete res[i].language;
+                res[i].framework = "N/A";
+                res[i].language = tempName;
+            } else if(res[i].framework == null && res[i].language == null){
+                res[i].framework = "N/A";
+                res[i].language = "N/A";
+            } else {  
+                res[i].framework = res[i].framework.name;
+                res[i].language = res[i].language.name;
+            }
         }
         return res;
     }

@@ -15,6 +15,19 @@ export default class DynTable extends Component {
         }
     }
 
+    ascendSort = (data, index) => {
+        let column = Object.keys(data[0])[index];
+        let ascendedData = _.sortBy(data, [column]); 
+        let nullFieldItems = _.filter(ascendedData, {[column]: "N/A"});
+        _.forEach(nullFieldItems,
+            function(naItem){
+                _.pull(ascendedData, naItem);
+                ascendedData.push(naItem);
+            })
+        
+        return ascendedData;
+    }
+
     setHeaders = () => {
         const { column, direction } = this.state;
         const { headers } = this.props;
@@ -47,7 +60,7 @@ export default class DynTable extends Component {
         if (column !== clickedColumn) {
             this.setState({
             column: clickedColumn,
-            data: _.sortBy(data, [Object.keys(data[0])[index]]),
+            data: this.ascendSort(data, index),
             direction: 'ascending',
             })
     
