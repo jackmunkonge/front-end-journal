@@ -56,7 +56,8 @@ export default class DynTable extends Component {
 
     handleSort = (clickedColumn)  => {
         const { column, data, direction } = this.state
-        let index = this.props.headers.indexOf(clickedColumn) + 1;
+        let headers = Object.keys(this.props.headers);
+        let index = headers.indexOf(clickedColumn) + 1;
         if (column !== clickedColumn) {
             this.setState({
             column: clickedColumn,

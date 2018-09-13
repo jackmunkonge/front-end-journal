@@ -53,7 +53,8 @@ export default class Frameworks extends Component {
     }
 
     render() {
-        let headers = ['Name', 'Language'];
+        // Boolean indicates data is clickable link
+        let headers = {'Name': false, 'Language': false};
         return(
             <Container>
                 <Navigation/>

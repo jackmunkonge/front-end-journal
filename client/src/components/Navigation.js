@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react';
 import logo from '../stylesheets/favicon.ico';
 
@@ -9,22 +10,22 @@ export default class Navigation extends Component {
             <Menu size='huge' stackable pointing secondary>
                 <Menu.Item><img src={logo} alt='logo'/></Menu.Item>
                 <Menu.Item 
-                href='/'
+                as={Link} to='/'
                 name='home' 
                 active={currentPathname === '/'} 
                 />
                 <Menu.Item
-                href='/resources'
+                as={Link} to='/resources'
                 name='resources'
                 active={currentPathname === '/resources'} 
                 />
                 <Menu.Item
-                href='/frameworks'
+                as={Link} to='/frameworks'
                 name='frameworks'
                 active={currentPathname === '/frameworks'} 
                 />
                 <Menu.Item
-                href='/languages'
+                as={Link} to='/languages'
                 name='languages'
                 active={currentPathname === '/languages'} 
                 />

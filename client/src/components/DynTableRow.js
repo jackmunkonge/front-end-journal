@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Loader, Table } from 'semantic-ui-react'
+import { Loader, Table } from 'semantic-ui-react';
 
 const Cells = props => {
     let arr = [];
