@@ -30,7 +30,7 @@ export default class DynTable extends Component {
 
     setHeaders = () => {
         const { column, direction } = this.state;
-        const { headers } = this.props;
+        const headers = Object.keys(this.props.headers);
         let arr = [];
         
         for(let i=0;i<headers.length;i++){
@@ -49,7 +49,7 @@ export default class DynTable extends Component {
             return(
                 data.map(resource => {
                     let resId = resource[Object.keys(resource)[0]];
-                        return <DynTableRow key={resId} data={resource}/>
+                        return <DynTableRow key={resId} data={resource} clickables={Object.values(this.props.headers)}/>
                     })
             )
     }
@@ -91,7 +91,7 @@ export default class DynTable extends Component {
                 </Table.Body> 
                 <Table.Footer fullWidth>
                     <Table.Row>
-                        <Table.HeaderCell colSpan={this.props.headers.length}>
+                        <Table.HeaderCell colSpan={Object.keys(this.props.headers).length}>
                         <Button  href="/" color="green" floated='right' icon labelPosition='right' size='small'>
                             <Icon name='plus circle' /> Add Item
                         </Button>
