@@ -42,7 +42,8 @@ export default class Languages extends Component {
     }
 
     render() {
-        let headers = ['Name'];
+        // Boolean indicates data is clickable link
+        let headers = {'Name': false};
         return(
             <Container>
                 <Navigation/>
